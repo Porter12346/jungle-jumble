@@ -32,4 +32,12 @@ export class JumbleController {
         innerHTMLString += activeJumble.ActiveTemplate
         setHTML('activeJumble', innerHTMLString)
     }
+
+    checkText() {
+        event.preventDefault()
+        const form = event.target
+        // @ts-ignore
+        const text = form.typedText
+        jumbleService.checkText(text.value)
+    }
 }
