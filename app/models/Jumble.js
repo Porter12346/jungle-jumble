@@ -14,9 +14,9 @@ export class Jumble {
     get ListTemplate() { // a basic list template to get drawing
         return `<div class="d-flex gap-2 mb-2">
                 <button>START</button>
-                <p>Crazy Jumble</p>
-                <p><i class="mdi mdi-clock">30.5s</i></p>
+                <p>${this.name}</p>
+                <p><i class="mdi mdi-clock">${this.fastestTime}</i></p>
                 <p>55.4 wpm</p>
-</div>`
+        </div>`
     }
 }
