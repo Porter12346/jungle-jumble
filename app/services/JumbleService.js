@@ -34,9 +34,11 @@ class JumbleService {
         let takenTime = endTime - startTime
         console.log(takenTime)
         let timeTakenConverted = new Date(takenTime)
-        let realTime = (`${timeTakenConverted.getSeconds()}.${timeTakenConverted.getMilliseconds()}`)
+        let realTime = (takenTime / 1000).toFixed(1)
         window.alert(`You completed this jumble in ${realTime} seconds`);
-
+        if (jumble.fastestTime > Number(realTime)) {
+            jumble.fastestTime = Number(realTime)
+        }
     }
 
 }

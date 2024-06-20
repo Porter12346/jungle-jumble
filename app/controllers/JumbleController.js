@@ -34,6 +34,7 @@ export class JumbleController {
     }
 
     checkText() {
+        let jumble = AppState.activeJumble.name
         event.preventDefault()
         const form = event.target
         // @ts-ignore
@@ -41,5 +42,7 @@ export class JumbleController {
         jumbleService.checkText(text.value)
         // @ts-ignore
         form.reset()
+        this.drawJumbleList()
+        this.setActiveJumble(jumble)
     }
 }
