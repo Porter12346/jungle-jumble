@@ -104,13 +104,14 @@
                   <p><i class="mdi mdi-clock">30.5s</i></p>
                   <p>55.4 wpm</p>
                 </div> -->
-                <form>
-                  <h5 class="text-center">Create Jumble</h5>
+                <form onsubmit="app.JumbleController.createJumble()">
+                  <h5 class="text-center mt-5">Create Jumble</h5>
                   <div class="mb-3">
-                    <input type="text" class="form-control" id="jumble-name" placeholder="Name">
+                    <input type="text" class="form-control" id="jumble-name" placeholder="Name" name="name">
                   </div>
                   <div class="mb-3">
-                    <textarea type="text" class="form-control" id="jumble-name" placeholder="Jumble"></textarea>
+                    <textarea type="text" class="form-control" id="jumble-name" placeholder="Jumble"
+                      name="body"></textarea>
                   </div>
                   <button type="submit" class="btn btn-warning">Create +</button>
                 </form>

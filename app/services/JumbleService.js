@@ -1,6 +1,8 @@
 import { AppState } from "../AppState.js"
+import { Jumble } from "../models/Jumble.js"
 
 class JumbleService {
+
 
     constructor() {
         console.log('Jumble Service init')
@@ -41,6 +43,10 @@ class JumbleService {
         }
     }
 
+    createJumble(data) {
+        let jumble = new Jumble(data)
+        AppState.jumbles.push(jumble)
+    }
 }
 // let timeTemp = 1718919136728
 // let timeTaken = Number(foundJumble.startTime) - timeTemp

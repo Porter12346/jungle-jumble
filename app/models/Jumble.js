@@ -12,11 +12,10 @@ export class Jumble {
     }
 
     get ListTemplate() { // a basic list template to get drawing
-        return `<div class="d-flex gap-2 mb-2">
+        return `<div class="d-flex gap-2 mb-2 justify-content-center  align-items-center">
                 <button onclick="app.JumbleController.setActiveJumble('${this.name}')">START</button>
-                <p>${this.name}</p>
-                <p><i class="mdi mdi-clock">${this.fastestTime}</i></p>
-                <p>55.4 wpm</p>
+                <p class="m-1">${this.name}</p>
+                <p class="m-1"><i class="mdi mdi-clock">${this.fastestTime}</i></p>
         </div>`
     }
 

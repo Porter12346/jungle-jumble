@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js"
 import { jumbleService } from "../services/JumbleService.js"
+import { getFormData } from "../utils/FormHandler.js"
 import { setHTML } from "../utils/Writer.js"
 
 export class JumbleController {
@@ -44,5 +45,16 @@ export class JumbleController {
         form.reset()
         this.drawJumbleList()
         this.setActiveJumble(jumble)
+    }
+
+    createJumble() {
+        event.preventDefault()
+        const form = event.target
+        const data = getFormData(form)
+        console.log(data)
+        jumbleService.createJumble(data)
+        // @ts-ignore
+        form.reset()
+        this.drawJumbleList()
     }
 }
