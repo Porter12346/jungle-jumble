@@ -1,11 +1,13 @@
 import { AppState } from "../AppState.js"
 import { Jumble } from "../models/Jumble.js"
+import { loadState, saveState } from "../utils/Store.js"
 
 class JumbleService {
 
 
     constructor() {
         console.log('Jumble Service init')
+        this.loadJumbles()
     }
 
     setActiveJumble(jumbleName) {
@@ -46,6 +48,16 @@ class JumbleService {
     createJumble(data) {
         let jumble = new Jumble(data)
         AppState.jumbles.push(jumble)
+        this.saveJumbles()
+    }
+
+    saveJumbles() {
+        const jumbles = AppState.jumbles
+        saveState('jumbles', jumbles)
+    }
+
+    loadJumbles() {
+        AppState.jumbles = loadState('jumbles', [Jumble])
     }
 }
 // let timeTemp = 1718919136728
