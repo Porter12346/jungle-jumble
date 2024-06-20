@@ -21,10 +21,22 @@ class JumbleService {
             let endTime = new Date().getTime()
             AppState.activeJumble.endTime = endTime
             console.log('YOU DID IT')
+            this.calculateTime()
         }
         else {
             window.alert('YOUR BAD AT TYPING')
         }
+    }
+    calculateTime() {
+        const jumble = AppState.activeJumble
+        const startTime = jumble.startTime
+        const endTime = jumble.endTime
+        let takenTime = endTime - startTime
+        console.log(takenTime)
+        let timeTakenConverted = new Date(takenTime)
+        let realTime = (`${timeTakenConverted.getSeconds()}.${timeTakenConverted.getMilliseconds()}`)
+        window.alert(`You completed this jumble in ${realTime} seconds`);
+
     }
 
 }

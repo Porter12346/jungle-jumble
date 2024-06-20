@@ -39,5 +39,7 @@ export class JumbleController {
         // @ts-ignore
         const text = form.typedText
         jumbleService.checkText(text.value)
+        // @ts-ignore
+        form.reset()
     }
 }
