@@ -6,6 +6,7 @@ export class JumbleController {
     constructor() {
         console.log('Jumble COntroller init')
         this.drawJumbleList()
+        this.setActiveJumble('🐒 Jumble')
     }
 
     drawJumbleList() {
@@ -16,5 +17,19 @@ export class JumbleController {
             innerHTMLString += jumble.ListTemplate
         });
         setHTML('jumbleListSection', innerHTMLString)
+    }
+
+    setActiveJumble(jumbleName) {
+        console.log('setting active jumble')
+        jumbleService.setActiveJumble(jumbleName)
+        this.drawActiveJumble()
+    }
+
+    drawActiveJumble() {
+        let activeJumble = AppState.activeJumble
+        let innerHTMLString = ''
+        console.log('drawing active jumble', activeJumble)
+        innerHTMLString += activeJumble.ActiveTemplate
+        setHTML('activeJumble', innerHTMLString)
     }
 }
